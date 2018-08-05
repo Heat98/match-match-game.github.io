@@ -1,0 +1,19 @@
+{
+  "name": "match-match-game",
+  "version": "1.0.0",
+  "description": "Simple game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heat98/match-match-game.github.io.git"
+  },
+  "author": "Dzmitry Kavalenka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heat98/match-match-game.github.io/issues"
+  },
+  "homepage": "https://github.com/Heat98/match-match-game.github.io#readme"
+}
