@@ -1,8 +1,226 @@
 body {
     padding: 0;
     margin: 0;
+    background: url("../assets/background.jpg") no-repeat;
+    background-size: cover;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.game {
+    width: 100%;
+    height: 100vh;
 }
 
 p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}                                  /*REGISTRATION*/
+
+.registration {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible !important;
+}
+
+@-webkit-keyframes slideDown {
+    0% {
+        -webkit-transform: translateY(-100%);
+    }
+    50%{
+        -webkit-transform: translateY(8%);
+    }
+    65%{
+        -webkit-transform: translateY(-4%);
+    }
+    80%{
+        -webkit-transform: translateY(4%);
+    }
+    95%{
+        -webkit-transform: translateY(-2%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+    }
+}
+
+h1 {
+    font-family: 'Amatic', sans-serif;
     font-size: 50px;
+}
+
+.registration p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.registration .registration_form {
+    width: 350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.registration .registration_form input {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-left: 13px;
+    outline: none;
+}
+
+.registration .registration_form input:valid + button {
+    color: green;
+    border: 2px solid green;
+    font-size: 17px;
+}
+
+::-webkit-input-placeholder {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+}
+
+.registration_form button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: white;
+    outline: none;
+    margin-left: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+.slide_right {
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1.2s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible !important;
+}
+
+@-webkit-keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(-150%);
+    }
+    50%{
+        -webkit-transform: translateX(8%);
+    }
+    65%{
+        -webkit-transform: translateX(-4%);
+    }
+    80%{
+        -webkit-transform: translateX(4%);
+    }
+    95%{
+        -webkit-transform: translateX(-2%);
+    }
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+
+                                    /*LEVELS*/
+
+.number_of_blocks {
+    width: 350px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.levels {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.levels span {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px ;
+}
+
+.levels span:hover {
+    border: 1px solid white;
+}
+
+                                            /*SKIRT*/
+
+.skirt {
+    width: 550px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.skirts {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.skirts div {
+    width: 150px;
+    height: 200px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px ;
+}
+
+.skirts div:hover {
+    border: 1px solid white;
+}
+
+.skirts div img {
+    width: 100%;
+    height: 100%;
 }

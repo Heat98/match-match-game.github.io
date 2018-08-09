@@ -18,6 +18,10 @@ module.exports = {
                 }
             },
             {
+                test: /\.json$/,
+                loader: 'json-loader'
+            },
+            {
                 test: /\.html$/,
                 use: [
                     {
@@ -30,7 +34,16 @@ module.exports = {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
-
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    }
+                }]
+            },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
@@ -72,5 +85,6 @@ module.exports = {
             filename: "[name].css",
             chunkFilename: "[id].css"
         })
-    ]
+    ],
+    devtool: "source-map"
 };

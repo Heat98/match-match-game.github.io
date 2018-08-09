@@ -1,3 +1,14 @@
-html {
-    margin: 0;
+@font-face {
+    font-family: 'Amatic';
+    font-weight: normal;
+    font-style: normal;
+    src: url("../assets/fonts/Amatic_SC/AmaticSC-Regular.ttf") format("truetype");
 }
+
+@font-face {
+    font-family: 'Raleway';
+    font-weight: normal;
+    font-style: normal;
+    src: url("../assets/fonts/Raleway/Raleway-Regular.ttf") format("truetype");
+}
+
