@@ -11,14 +11,15 @@ document.getElementById('submit').addEventListener('click', ()=> {
 
 document.getElementById('levels').addEventListener('click', (event)=> {
     let target = event.target;
-    config.push({"Level": target.id});
+    config.push(+target.id);
     if (target.tagName !== 'SPAN') return;
     registration.chooseLevel();
 });
 
 document.getElementById('skirt').addEventListener('click', (event)=> {
     let target = event.target;
-    config.push({"Skirt": target.id});
+    config.push(target.id);
     if (target.tagName !== 'IMG') return;
-    registration.createGameField();
+    registration.chooseSkirt();
+    console.log(config)
 });

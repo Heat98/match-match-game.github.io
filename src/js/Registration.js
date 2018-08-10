@@ -1,30 +1,28 @@
 import CONSTANTS from '../js/CONSTANTS'
+import GameField from "./GameField";
 
 export default class Registration{
 
     writeName() {
-        if (document.getElementById('name').value !== '') {
-            CONSTANTS.nickname.classList.remove('registration_form');
-            CONSTANTS.nickname.classList.add('hide');
-            CONSTANTS.levels.classList.remove('hide');
-            CONSTANTS.levels.classList.add('number_of_blocks');
-            CONSTANTS.levels.classList.add('slide_right');
+        let str = document.getElementById('name').value;
+        if (str.length >= 3) {
+            CONSTANTS.nickname.classList.toggle('registration_form');
+            CONSTANTS.nickname.classList.toggle('hide');
+            CONSTANTS.levels.classList.toggle('hide');
             document.getElementById('hello').innerHTML = 'Hello, ' + document.getElementById('name').value + '!' + '<br>' + 'Select the number of cards.'
         } else {
-            document.getElementById('fill_name').innerHTML = 'Please, write your nickname!';
+            document.getElementById('fill_name').innerHTML = 'Please, write your nickname not shorter than 3 symbols!';
         }
     }
 
     chooseLevel() {
-        CONSTANTS.levels.classList.add('hide');
-        CONSTANTS.levels.classList.remove('number_of_blocks');
-        CONSTANTS.levels.classList.remove('slide_right');
-        CONSTANTS.skirts.classList.remove('hide');
-        CONSTANTS.skirts.classList.add('skirt');
-        CONSTANTS.skirts.classList.add('slide_right');
+        CONSTANTS.levels.classList.toggle('hide');
+        CONSTANTS.skirts.classList.toggle('hide');
     }
 
-    createGameField() {
-        alert('NEW GAME!!!');
+    chooseSkirt() {
+        document.getElementById('registration').classList.toggle('hide');
+        document.getElementById('gameField').classList.toggle('gameField');
+        new GameField().createGameField();
     }
 }
