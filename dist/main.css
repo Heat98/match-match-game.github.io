@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background: url("../assets/background.jpg") no-repeat;
+    background: url(5d9eca04d3ae1d20f130dc844c296639.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -260,3 +260,21 @@ label {
 .rotate {
     transform: rotate(180deg);
 }
+
+@font-face {
+    font-family: 'Amatic';
+    font-weight: normal;
+    font-style: normal;
+    src: url(fonts/AmaticSC-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'Raleway';
+    font-weight: normal;
+    font-style: normal;
+    src: url(fonts/Raleway-Regular.ttf) format("truetype");
+}
+
+
+
+/*# sourceMappingURL=main.css.map*/

@@ -18,7 +18,7 @@ document.getElementById('levels').addEventListener('click', (event)=> {
 
 document.getElementById('skirt').addEventListener('click', (event)=> {
     let target = event.target;
-    config.push(target.id);
+    config.push(target.src, target.id);
     if (target.tagName !== 'IMG') return;
     registration.chooseSkirt();
     console.log(config)

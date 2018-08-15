@@ -1,36 +1,54 @@
 import config from '../js/config'
+import Card from '../js/Card'
 
 export default class GameField {
 
     constructor() {
-        this.skirt = config[1];
         this.cardsNumber = config[0];
-        this.cardsField = document.getElementById('cards');
-        this.card = [];
+        this.skirtChoice = config[1];
+        this.front = config[2];
+        this.cardsArray = [];
+        this.imageArray = [];
+        this.back = null;
+        this.card = new Card();
+
     }
 
     createGameField() {
-
         for (let i = 0; i < this.cardsNumber; i++) {
-            this.card.push(document.createElement('div'));
-            // this.cardsField.appendChild(card);
-            // card.classList.add('card');
-            // card.id = `${i}`
+            this.cardsArray.push(this.card.createCard());
+            // this.cardsArray.push(this.card);
+            // this.imageArray.push(document.createElement('img'));
         }
-        this.card.forEach((i)=> {
-            this.cardsField.appendChild(i);
-            // this.cardsField.classList.add('slide_right');
-            i.classList.add('card');
-            i.id = `${i}`;
+
+        this.setCardClass();
+        this.setBackImage();
+    }
+
+    setCardClass() {
+        this.cardsArray.forEach((card, num) => {
+            card.id = `${num + 1}`;
             if (this.cardsNumber === 12) {
-                i.classList.add('easy_cards');
+                card.classList.add('easy_cards');
             } else if (this.cardsNumber === 16) {
-                i.classList.add('medium_cards');
+                card.classList.add('medium_cards');
             } else {
-                i.classList.add('hard_cards');
+                card.classList.add('hard_cards');
             }
+
         });
-        console.log(this.card);
+
+    }
+
+    setBackImage() {
+        this.cardsArray.forEach((card)=> {
+            this.back = document.createElement('img');
+            this.back.src = this.skirtChoice;
+            card.appendChild(this.back);
+        });
+        this.back.addEventListener('click', () => {
+            this.back.style.display = 'none';
+        })
     }
 
 }
