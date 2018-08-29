@@ -2,11 +2,14 @@ import Game from './Game'
 
 export default class Card {
 
-    constructor(cardsNumber, backPath, front) {
+    constructor(cardsNumber, backPath, frontId) {
 
         this.cardsNumber = cardsNumber;
         this.backPath = backPath;
-        this.front = front;
+        this.frontId = frontId;
+
+        this.front = null;
+        this.back = null;
 
         this.cardsArray = [];
         this.imageArray = [];
@@ -20,8 +23,32 @@ export default class Card {
     createCard() {
         this.card = document.createElement('div');
         this.card.classList.add('card');
+
+        this.createFrontSide();
+        this.createBackSide();
+
+
         document.getElementById('cards').appendChild(this.card);
         return this.card;
+    }
+
+    createFrontSide() {
+
+        this.front = document.createElement('div');
+        this.front.classList.add('front');
+        this.card.appendChild(this.front);
+
+    }
+
+    createBackSide() {
+
+        this.back = document.createElement('div');
+        this.back.classList.add('back');
+        this.card.appendChild(this.back);
+
+        let backImage = document.createElement('img');
+        backImage.src = this.backPath;
+        this.back.appendChild(backImage);
     }
 
     createGameField() {
@@ -29,7 +56,6 @@ export default class Card {
             this.cardsArray.push(this.createCard());
         }
         this.setCardClass();
-        this.setBackImage();
     }
 
     setCardClass() {
@@ -46,19 +72,10 @@ export default class Card {
 
     }
 
-    setBackImage() {
-        this.cardsArray.forEach((card)=> {
-            this.back = document.createElement('img');
-            this.back.src = this.backPath;
-            card.appendChild(this.back);
-        });
-    }
-
     click() {
         this.cardsArray.forEach((card) => {
-            card.addEventListener('click', (event) => {
-                let target = event.target;
-                target.classList.add('rotate');
+            card.addEventListener('click', () => {
+                card.classList.add('rotate');
             })
         })
     }
