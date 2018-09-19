@@ -1,4 +1,5 @@
 import Game from './Game'
+import images from './images'
 
 export default class Card {
 
@@ -6,31 +7,43 @@ export default class Card {
 
         this.cardsNumber = cardsNumber;
         this.backPath = backPath;
-        this.frontId = frontId;
+        this.imagesObj = images.find((o)=>{
+            return o.id === frontId;
+        });
 
         this.front = null;
         this.back = null;
 
         this.cardsArray = [];
-        this.imageArray = [];
-
-        this.card = null;
+        this.imageArray = this.shuffleImageArray(this.imagesObj.images.slice(0, cardsNumber / 2));
+        this.imageArray = this.shuffleImageArray(this.imageArray.concat(this.imageArray));
 
         this.createGameField();
         this.click();
     }
 
+
+
+    shuffleImageArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
     createCard() {
+
         this.card = document.createElement('div');
         this.card.classList.add('card');
 
         this.createFrontSide();
         this.createBackSide();
 
-
         document.getElementById('cards').appendChild(this.card);
         return this.card;
     }
+
 
     createFrontSide() {
 
@@ -56,6 +69,7 @@ export default class Card {
             this.cardsArray.push(this.createCard());
         }
         this.setCardClass();
+        console.log(this.imageArray);
     }
 
     setCardClass() {
@@ -69,7 +83,6 @@ export default class Card {
                 card.classList.add('hard_cards');
             }
         });
-
     }
 
     click() {
@@ -79,5 +92,4 @@ export default class Card {
             })
         })
     }
-
 }
