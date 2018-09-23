@@ -17,12 +17,27 @@ export default class Card {
         this.cardsArray = [];
         this.imageArray = this.shuffleImageArray(this.imagesObj.images.slice(0, cardsNumber / 2));
         this.imageArray = this.shuffleImageArray(this.imageArray.concat(this.imageArray));
-
         this.createGameField();
         this.click();
     }
 
+    createGameField() {
+        for (let i = 0; i < this.cardsNumber; i++) {
+            this.cardsArray.push(this.createCard());
+        }
+        this.setCardClass();
 
+        this.frontArray = Array.from(document.querySelectorAll("div.front img"));
+
+        let count = 0;
+        while(count < this.cardsNumber) {
+            this.frontArray[count].src = this.imageArray[count].src;
+            this.frontArray[count].id = this.imageArray[count].id;
+            count++;
+        }
+        console.log(this.imageArray);
+        console.log(this.frontArray);
+    }
 
     shuffleImageArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -51,6 +66,9 @@ export default class Card {
         this.front.classList.add('front');
         this.card.appendChild(this.front);
 
+        this.frontImage = document.createElement('img');
+        this.front.appendChild(this.frontImage);
+
     }
 
     createBackSide() {
@@ -62,19 +80,13 @@ export default class Card {
         let backImage = document.createElement('img');
         backImage.src = this.backPath;
         this.back.appendChild(backImage);
+        return this.back;
     }
 
-    createGameField() {
-        for (let i = 0; i < this.cardsNumber; i++) {
-            this.cardsArray.push(this.createCard());
-        }
-        this.setCardClass();
-        console.log(this.imageArray);
-    }
+
 
     setCardClass() {
-        this.cardsArray.forEach((card, num) => {
-            card.id = `${num + 1}`;
+        this.cardsArray.forEach((card) => {
             if (this.cardsNumber === 12) {
                 card.classList.add('easy_cards');
             } else if (this.cardsNumber === 16) {
