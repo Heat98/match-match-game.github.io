@@ -15,26 +15,20 @@ export default class Card {
         this.back = null;
 
         this.cardsArray = [];
-        this.imageArray = this.shuffleImageArray(this.imagesObj.images.slice(0, cardsNumber / 2));
+        this.imageArray = this.shuffleImageArray(this.shuffleImageArray(this.imagesObj.images.slice(0, cardsNumber / 2)));
         this.imageArray = this.shuffleImageArray(this.imageArray.concat(this.imageArray));
         this.createGameField();
-        this.click();
     }
+
+
 
     createGameField() {
         for (let i = 0; i < this.cardsNumber; i++) {
             this.cardsArray.push(this.createCard());
         }
         this.setCardClass();
+        this.createFrontSideImages();
 
-        this.frontArray = Array.from(document.querySelectorAll("div.front img"));
-
-        let count = 0;
-        while(count < this.cardsNumber) {
-            this.frontArray[count].src = this.imageArray[count].src;
-            this.frontArray[count].id = this.imageArray[count].id;
-            count++;
-        }
         console.log(this.imageArray);
         console.log(this.frontArray);
     }
@@ -80,10 +74,18 @@ export default class Card {
         let backImage = document.createElement('img');
         backImage.src = this.backPath;
         this.back.appendChild(backImage);
-        return this.back;
     }
 
+    createFrontSideImages() {
+        this.frontArray = Array.from(document.querySelectorAll("div.front img"));
 
+        let count = 0;
+        while(count < this.cardsNumber) {
+            this.frontArray[count].src = this.imageArray[count].src;
+            this.cardsArray[count].id = this.imageArray[count].id;
+            count++;
+        }
+    }
 
     setCardClass() {
         this.cardsArray.forEach((card) => {
@@ -95,13 +97,5 @@ export default class Card {
                 card.classList.add('hard_cards');
             }
         });
-    }
-
-    click() {
-        this.cardsArray.forEach((card) => {
-            card.addEventListener('click', () => {
-                card.classList.add('rotate');
-            })
-        })
     }
 }

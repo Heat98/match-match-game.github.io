@@ -125,6 +125,11 @@ label {
     display: none;
 }
 
+.skip {
+    visibility: hidden;
+    transition: visibility 0s linear 0.3s;
+}
+
 .slide_right {
     animation-name: slideRight;
     -webkit-animation-name: slideRight;
