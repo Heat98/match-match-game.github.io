@@ -27,7 +27,9 @@ p {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     text-align: center;
-}                                  /*REGISTRATION*/
+}
+
+                                                /*REGISTRATION*/
 
 .registration {
     width: 100%;
@@ -68,6 +70,7 @@ p {
 h1 {
     font-family: 'Amatic', sans-serif;
     font-size: 50px;
+    text-align: center;
 }
 
 .registration p {
@@ -127,7 +130,6 @@ label {
 
 .skip {
     visibility: hidden;
-    transition: visibility 0s linear 0.3s;
 }
 
 .slide_right {
@@ -232,7 +234,7 @@ label {
 
 .card {
     cursor: pointer;
-    transition: transform 1s;
+    transition: transform 1s, visibility 0s linear 0.3s;
     transform-style: preserve-3d;
     -webkit-transform: rotateY(0deg);
     position: relative;
@@ -282,4 +284,15 @@ label {
 
 .rotate {
     transform: rotateY(180deg);
+}
+
+
+                                /*CONGRATULATIONS*/
+
+.congratulations {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
