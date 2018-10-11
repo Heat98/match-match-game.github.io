@@ -28,9 +28,6 @@ export default class Card {
         }
         this.setCardClass();
         this.createFrontSideImages();
-
-        console.log(this.imageArray);
-        console.log(this.frontArray);
     }
 
     shuffleImageArray(array) {

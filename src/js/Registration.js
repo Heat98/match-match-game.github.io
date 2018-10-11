@@ -45,7 +45,6 @@ export default class Registration {
             document.getElementById('registration').classList.toggle('hide');
             document.getElementById('gameField').classList.toggle('gameField');
             new Game(config[0], config[1], config[2]);
-            console.log(config)
         });
 
     }

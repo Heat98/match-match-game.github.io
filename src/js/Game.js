@@ -16,7 +16,6 @@ export default class Game {
             card.addEventListener('click', () => {
                 card.classList.add('rotate');
                 this.comparisonArray.push(card);
-                console.log(this.comparisonArray);
                 if (this.comparisonArray.length === 2) {
                     this.compareCard();
                     this.comparisonArray = [];
