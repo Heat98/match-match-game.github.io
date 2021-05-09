@@ -1,2 +1,2 @@
-# OPEN:  https://heat98.github.io/match-match-game.github.io/
+# OPEN:  https://dzmitrykavalenka-own.github.io/match-match-game.github.io/
 # match-match-game.github.io
